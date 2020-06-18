@@ -26,6 +26,7 @@ main input {
 }
 
 main {
+    max-width: calc(100% - 20px);
     padding: 20px 40px;
     background-color: #0001;
     box-shadow: 3px 3px 5px #0003, -3px -3px 5px #fff2;
@@ -37,6 +38,7 @@ main {
     color: inherit;
     transition: color .3s;
     user-select: none;
+    text-align: center;
 }
 
 #link:active {
