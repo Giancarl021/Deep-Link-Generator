@@ -35,7 +35,7 @@ function generateLink() {
 }
 
 function parseExceptions(link) {
-    let r = '';
+    let r = link;
     const exceptions = [
         {
             regex: /^tel:/,
