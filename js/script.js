@@ -2,9 +2,11 @@ let $link, $form, $uri, $title;
 
 function init() {
     const {
-        link,
+        link: _link,
         title
     } = parseParams();
+
+    const link = parseExceptions(_link);
 
     $link = document.getElementById('link');
     $form = document.querySelector('form');
@@ -30,6 +32,26 @@ function parseParams() {
 
 function generateLink() {
     window.location.href = window.location.href.split('?').shift() + `?link=${encodeURIComponent($uri.value)}&title=${encodeURIComponent($title.value)}`;
+}
+
+function parseExceptions(link) {
+    let r = '';
+    const exceptions = [
+        {
+            regex: /^tel:/,
+            fn(link) {
+                return 'tel:' + encodeURIComponent(link.replace('tel:', ''));
+            }
+        }
+    ];
+
+    for (const exception of exceptions) {
+        if(exception.regex.test(link)) {
+            r = exception.fn(link);
+        }
+    }
+
+    return r;
 }
 
 document.addEventListener('DOMContentLoaded', init);
