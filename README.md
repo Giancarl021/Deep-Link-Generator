@@ -2,7 +2,7 @@
 
 An simple static page that generates an link or deeplink of your choice.
 
-You can test [Here](https://giancarl021.github.io/Deep-Link-Generator).
+You can test [here](https://giancarl021.github.io/Deep-Link-Generator).
 
 ## Usage
 
